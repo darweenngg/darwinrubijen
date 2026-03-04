@@ -9,104 +9,189 @@
 
 <style>
 :root {
-  --bg: #f8f8f8;
+  --bg: #f5f5f5;
   --text: #1a1a1a;
-  --accent: #8c8c8c;
+  --accent: #777;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
   font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  text-align:center;
+  line-height:1.6;
 }
 
 section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-  text-align: center;
+  padding:80px 20px;
 }
 
 .container {
-  max-width: 700px;
+  max-width:800px;
+  margin:auto;
 }
 
 h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-family:'Playfair Display', serif;
+  font-size:3rem;
+  margin-bottom:10px;
 }
 
 h2 {
-  font-weight: 400;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  color: var(--accent);
-  margin-bottom: 40px;
-}
-
-.details {
-  margin-top: 30px;
-  font-size: 1rem;
-  color: #444;
+  font-weight:400;
+  letter-spacing:3px;
+  font-size:1rem;
+  color:var(--accent);
+  margin-bottom:40px;
 }
 
 .button {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 12px 28px;
-  border: 1px solid var(--text);
-  text-decoration: none;
-  color: var(--text);
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  transition: 0.3s ease;
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 30px;
+  border:1px solid var(--text);
+  text-decoration:none;
+  color:var(--text);
+  font-size:0.85rem;
+  letter-spacing:1px;
+  transition:.3s;
 }
 
 .button:hover {
-  background: var(--text);
-  color: white;
+  background:var(--text);
+  color:white;
+}
+
+.countdown {
+  font-size:1.2rem;
+  margin-top:20px;
+  letter-spacing:2px;
+}
+
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:15px;
+  margin-top:30px;
+}
+
+.gallery img {
+  width:100%;
+  height:250px;
+  object-fit:cover;
+}
+
+.map iframe {
+  width:100%;
+  height:350px;
+  border:0;
+  margin-top:20px;
+}
+
+.music-btn {
+  position:fixed;
+  top:20px;
+  right:20px;
+  padding:10px 15px;
+  border:1px solid var(--text);
+  background:white;
+  cursor:pointer;
+  font-size:0.8rem;
 }
 
 footer {
-  padding: 20px;
-  font-size: 0.8rem;
-  color: var(--accent);
+  padding:40px 20px;
+  font-size:0.8rem;
+  color:var(--accent);
 }
 </style>
 </head>
 
 <body>
 
+<button class="music-btn" onclick="toggleMusic()">Music ♫</button>
+<audio id="bgMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
 <section>
   <div class="container">
     <h1>Darwin & Rubijen</h1>
-    <h2>ARE GETTING MARRIED</h2>
+    <h2>WE ARE GETTING MARRIED</h2>
+    <p>December 10, 2027</p>
+    <p>Baguio City</p>
 
-    <div class="details">
-      <p>December 10, 2027</p>
-      <p>Baguio City</p>
+    <div class="countdown" id="countdown"></div>
+
+    <a class="button" href="https://forms.gle/" target="_blank">RSVP</a>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>THE DETAILS</h2>
+    <p><strong>Ceremony:</strong> 2:00 PM</p>
+    <p><strong>Reception:</strong> 5:00 PM</p>
+    <p><strong>Dress Code:</strong> Formal / Neutral tones</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>LOCATION</h2>
+    <p>Baguio City, Philippines</p>
+    <div class="map">
+      <iframe 
+        src="https://www.google.com/maps?q=Baguio+City&output=embed">
+      </iframe>
     </div>
+  </div>
+</section>
 
-    <a class="button" href="https://forms.gle/" target="_blank">
-      RSVP
-    </a>
+<section>
+  <div class="container">
+    <h2>OUR MOMENTS</h2>
+    <div class="gallery">
+      <img src="https://source.unsplash.com/600x800/?couple,love" alt="">
+      <img src="https://source.unsplash.com/600x800/?engagement" alt="">
+      <img src="https://source.unsplash.com/600x800/?wedding,romantic" alt="">
+      <img src="https://source.unsplash.com/600x800/?flowers,wedding" alt="">
+    </div>
   </div>
 </section>
 
 <footer>
   With love, we invite you to celebrate our special day.
 </footer>
+
+<script>
+// Countdown
+const weddingDate = new Date("December 10, 2027 00:00:00").getTime();
+const countdownEl = document.getElementById("countdown");
+
+setInterval(function() {
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+  countdownEl.innerHTML = days + " DAYS • " + hours + " HOURS • " + minutes + " MINUTES";
+}, 1000);
+
+// Music toggle
+function toggleMusic() {
+  const music = document.getElementById("bgMusic");
+  if (music.paused) {
+    music.play();
+  } else {
+    music.pause();
+  }
+}
+</script>
 
 </body>
 </html>
