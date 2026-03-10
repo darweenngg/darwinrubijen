@@ -63,10 +63,23 @@ body{
 /* Buttons (hidden) */
 .button{display:none;}
 
-/* Gallery */
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:30px;}
-.gallery img{width:100%;height:250px;object-fit:cover;transition:transform .5s ease;}
-.gallery img:hover{transform:scale(1.1);}
+/* Gallery 2x2 grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-auto-rows: 250px; /* each row 250px height */
+  gap: 15px;
+  margin-top: 30px;
+}
+.gallery img {
+  width: 100%;
+  height: 100%; /* fill grid cell */
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.gallery img:hover {
+  transform: scale(1.05); /* slight zoom on hover */
+}
 
 /* Map section fix */
 #location {
