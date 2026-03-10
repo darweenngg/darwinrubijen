@@ -8,38 +8,98 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+
 :root {
-  --bg: #6E7F9A; /* Dusty Blue */
+  --bg: #6E7F9A;
   --text: #ffffff;
   --accent: #d8dee9;
 }
 
-* { margin:0; padding:0; box-sizing:border-box; }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
+body{
+  font-family:'Inter', sans-serif;
+  background:var(--bg);
+  color:var(--text);
   text-align:center;
   line-height:1.6;
 }
 
-section {
+/* ================= ENVELOPE ================= */
+
+#envelopeScreen{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:#6E7F9A;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:9999;
+}
+
+.envelope{
+  width:260px;
+  height:160px;
+  background:#f5f5f5;
+  position:relative;
+  cursor:pointer;
+  border-radius:4px;
+}
+
+.envelope:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:0;
+  border-left:130px solid transparent;
+  border-right:130px solid transparent;
+  border-top:80px solid #e3e3e3;
+  transform-origin:top;
+  transition:0.8s;
+}
+
+.envelope.open:before{
+  transform:rotateX(180deg);
+}
+
+.invite-text{
+  margin-top:30px;
+  font-size:0.9rem;
+  letter-spacing:3px;
+}
+
+#mainContent{
+  display:none;
+  animation:fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+/* ================= MAIN WEBSITE ================= */
+
+section{
   padding:80px 20px;
 }
 
-.container {
+.container{
   max-width:800px;
   margin:auto;
 }
 
-h1 {
+h1{
   font-family:'Playfair Display', serif;
   font-size:3rem;
   margin-bottom:10px;
 }
 
-h2 {
+h2{
   font-weight:400;
   letter-spacing:3px;
   font-size:1rem;
@@ -47,7 +107,7 @@ h2 {
   margin-bottom:40px;
 }
 
-.button {
+.button{
   display:inline-block;
   margin-top:25px;
   padding:12px 30px;
@@ -59,38 +119,38 @@ h2 {
   transition:.3s;
 }
 
-.button:hover {
+.button:hover{
   background:white;
   color:#6E7F9A;
 }
 
-.countdown {
+.countdown{
   font-size:1.2rem;
   margin-top:20px;
   letter-spacing:2px;
 }
 
-.gallery {
+.gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
   gap:15px;
   margin-top:30px;
 }
 
-.gallery img {
+.gallery img{
   width:100%;
   height:250px;
   object-fit:cover;
 }
 
-.map iframe {
+.map iframe{
   width:100%;
   height:350px;
   border:0;
   margin-top:20px;
 }
 
-.music-btn {
+.music-btn{
   position:fixed;
   top:20px;
   right:20px;
@@ -102,101 +162,154 @@ h2 {
   font-size:0.8rem;
 }
 
-footer {
+footer{
   padding:40px 20px;
   font-size:0.8rem;
   color:#e5e9f0;
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- ================= ENVELOPE ================= -->
+
+<div id="envelopeScreen">
+
+<div class="envelope" id="env" onclick="openInvite()"></div>
+<div class="invite-text">OPEN INVITATION</div>
+
+</div>
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<div id="mainContent">
+
 <button class="music-btn" onclick="toggleMusic()">Music ♫</button>
+
 <audio id="bgMusic" loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
 </audio>
 
 <section>
-  <div class="container">
-    <h1>Darwin & Rubijen</h1>
-    <h2>WE ARE GETTING MARRIED</h2>
-    <p>December 10, 2027</p>
-    <p>Baguio City</p>
+<div class="container">
 
-    <div class="countdown" id="countdown"></div>
+<h1>Darwin & Rubijen</h1>
+<h2>WE ARE GETTING MARRIED</h2>
 
-    <a class="button" href="https://forms.gle/" target="_blank">RSVP</a>
-  </div>
+<p>December 10, 2027</p>
+<p>Baguio City</p>
+
+<div class="countdown" id="countdown"></div>
+
+<a class="button" href="https://forms.gle/" target="_blank">RSVP</a>
+
+</div>
 </section>
 
 <section>
-  <div class="container">
-    <h2>THE DETAILS</h2>
-    <p><strong>Ceremony:</strong> 2:00 PM</p>
-    <p><strong>Reception:</strong> 5:00 PM</p>
-    <p><strong>Dress Code:</strong> Formal / Neutral tones</p>
-  </div>
+<div class="container">
+
+<h2>THE DETAILS</h2>
+
+<p><strong>Ceremony:</strong> 2:00 PM</p>
+<p><strong>Reception:</strong> 5:00 PM</p>
+<p><strong>Dress Code:</strong> Formal / Neutral tones</p>
+
+</div>
 </section>
 
 <section>
-  <div class="container">
-    <h2>LOCATION</h2>
-    <p>Baguio City, Philippines</p>
-    <div class="map">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.184518448749!2d120.62303727584516!3d16.415452584315304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a6abdc31940b%3A0xe8070a26b3f9efe4!2sGrand%20Sierra%20Pines%20Baguio!5e0!3m2!1sen!2sph!4v1772671926262!5m2!1sen!2sph">
-      </iframe>
-    </div>
-  </div>
+<div class="container">
+
+<h2>LOCATION</h2>
+<p>Baguio City, Philippines</p>
+
+<div class="map">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.184518448749!2d120.62303727584516!3d16.415452584315304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a6abdc31940b%3A0xe8070a26b3f9efe4!2sGrand%20Sierra%20Pines%20Baguio!5e0!3m2!1sen!2sph!4v1772671926262!5m2!1sen!2sph"></iframe>
+</div>
+
+</div>
 </section>
 
 <section>
-  <div class="container">
-    <h2>OUR MOMENTS</h2>
-    <div class="gallery">
-      <img src="https://source.unsplash.com/600x800/?couple,love" alt="">
-      <img src="https://source.unsplash.com/600x800/?engagement" alt="">
-      <img src="https://source.unsplash.com/600x800/?wedding,romantic" alt="">
-      <img src="https://source.unsplash.com/600x800/?flowers,wedding" alt="">
-    </div>
-  </div>
+<div class="container">
+
+<h2>OUR MOMENTS</h2>
+
+<div class="gallery">
+
+<img src="https://source.unsplash.com/600x800/?couple,love">
+<img src="https://source.unsplash.com/600x800/?engagement">
+<img src="https://source.unsplash.com/600x800/?wedding,romantic">
+<img src="https://source.unsplash.com/600x800/?flowers,wedding">
+
+</div>
+
+</div>
 </section>
 
 <footer>
-  With love, we invite you to celebrate our special day.
+With love, we invite you to celebrate our special day.
 </footer>
 
+</div>
+
 <script>
-// Countdown
-const weddingDate = new Date("December 10, 2027 00:00:00").getTime();
-const countdownEl = document.getElementById("countdown");
 
-setInterval(function() {
-  const now = new Date().getTime();
-  const distance = weddingDate - now;
+/* ENVELOPE OPEN */
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+function openInvite(){
 
-  countdownEl.innerHTML = days + " DAYS • " + hours + " HOURS • " + minutes + " MINUTES";
-}, 1000);
+const env=document.getElementById("env");
+env.classList.add("open");
 
-// Music toggle
-function toggleMusic() {
-  const music = document.getElementById("bgMusic");
-  if (music.paused) {
-    music.play();
-  } else {
-    music.pause();
-  }
+setTimeout(()=>{
+
+document.getElementById("envelopeScreen").style.display="none";
+document.getElementById("mainContent").style.display="block";
+
+document.getElementById("bgMusic").play();
+
+},800);
+
 }
+
+/* COUNTDOWN */
+
+const weddingDate=new Date("December 10, 2027 00:00:00").getTime();
+const countdownEl=document.getElementById("countdown");
+
+setInterval(function(){
+
+const now=new Date().getTime();
+const distance=weddingDate-now;
+
+const days=Math.floor(distance/(1000*60*60*24));
+const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+
+countdownEl.innerHTML=
+days+" DAYS • "+hours+" HOURS • "+minutes+" MINUTES";
+
+},1000);
+
+/* MUSIC */
+
+function toggleMusic(){
+
+const music=document.getElementById("bgMusic");
+
+if(music.paused){
+music.play();
+}else{
+music.pause();
+}
+
+}
+
 </script>
 
 </body>
 </html>
-
-
-
-
