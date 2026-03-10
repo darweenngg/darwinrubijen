@@ -1,4 +1,4 @@
-/* Envelope Opening */
+/* Envelope */
 
 function openInvite(){
 
@@ -12,6 +12,8 @@ document.getElementById("envelopeScreen").style.display="none";
 document.getElementById("mainContent").style.display="block";
 
 document.getElementById("bgMusic").play();
+
+startScrollAnimations();
 
 },1200);
 
@@ -36,7 +38,7 @@ days+" DAYS • "+hours+" HOURS • "+minutes+" MINUTES";
 
 },1000);
 
-/* Music Toggle */
+/* Music */
 
 function toggleMusic(){
 
@@ -50,7 +52,9 @@ music.pause();
 
 }
 
-/* Scroll Fade Animation */
+/* Scroll animations */
+
+function startScrollAnimations(){
 
 const sections=document.querySelectorAll(".fade-section");
 
@@ -71,3 +75,5 @@ entry.target.classList.add("show");
 sections.forEach(section=>{
 observer.observe(section);
 });
+
+}
