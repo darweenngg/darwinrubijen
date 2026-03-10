@@ -101,10 +101,10 @@ footer{padding:40px 20px;font-size:0.8rem;color:#e5e9f0;}
 
 .venue-photo {
   width: 100%;
-  max-width: 500px;   /* limit the width */
+  max-width: 450px;   /* limits the image size */
   height: auto;
-  margin-top: 15px;
-  border-radius: 8px;
+  display: block;
+  margin: 20px auto;  /* centers the image */
+  border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  object-fit: cover;
 }
