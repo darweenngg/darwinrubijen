@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<!-- Falling petals container -->
+<!-- Falling petals -->
 <div class="petals"></div>
 
 <!-- ENVELOPE INTRO -->
@@ -26,16 +26,17 @@
   <p class="invite-text">Tap the seal to open</p>
 </div>
 
-<!-- MAIN WEBSITE -->
+<!-- MAIN CONTENT -->
 <div id="mainContent">
 
+<!-- Music -->
 <button class="music-btn" onclick="toggleMusic()">Music ♫</button>
 <audio id="bgMusic" loop>
   <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
 </audio>
 
-<!-- HERO -->
-<section class="fade-section">
+<!-- HERO / FIRST PAGE -->
+<section class="page-section fade-section" id="hero">
   <div class="container">
     <h1 class="wedding-names">
       <span>Darwin</span><span class="amp">&</span><span>Rubijen</span>
@@ -44,33 +45,38 @@
     <p>December 10, 2027</p>
     <p>Baguio City</p>
     <div class="countdown" id="countdown"></div>
-    <a class="button" href="https://forms.gle/" target="_blank">RSVP</a>
+    <a class="button" href="#details">Next →</a>
   </div>
 </section>
 
-<!-- DETAILS -->
-<section class="fade-section">
+<!-- DETAILS / SECOND PAGE -->
+<section class="page-section fade-section" id="details">
   <div class="container">
     <h2>THE DETAILS</h2>
     <p><strong>Ceremony:</strong> 2:00 PM</p>
     <p><strong>Reception:</strong> 5:00 PM</p>
     <p><strong>Dress Code:</strong> Formal / Neutral tones</p>
+    <a class="button" href="#location">Next →</a>
   </div>
 </section>
 
-<!-- LOCATION -->
-<section class="fade-section">
+<!-- LOCATION / THIRD PAGE -->
+<section class="page-section fade-section" id="location">
   <div class="container">
     <h2>LOCATION</h2>
     <p>Baguio City, Philippines</p>
     <div class="map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.184518448749!2d120.62303727584516!3d16.415452584315304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a6abdc31940b%3A0xe8070a26b3f9efe4!2sGrand%20Sierra%20Pines%20Baguio!5e0!3m2!1sen!2sph!4v1772671926262!5m2!1sen!2sph"></iframe>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.184518448749!2d120.62303727584516!3d16.415452584315304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a6abdc31940b%3A0xe8070a26b3f9efe4!2sGrand%20Sierra%20Pines%20Baguio!5e0!3m2!1sen!2sph!4v1772671926262!5m2!1sen!2sph"
+        allowfullscreen
+      ></iframe>
     </div>
+    <a class="button" href="#gallery">Next →</a>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="fade-section">
+<!-- GALLERY / FOURTH PAGE -->
+<section class="page-section fade-section" id="gallery">
   <div class="container">
     <h2>OUR MOMENTS</h2>
     <div class="gallery">
@@ -79,6 +85,7 @@
       <img src="https://source.unsplash.com/600x800/?wedding,romantic" alt="">
       <img src="https://source.unsplash.com/600x800/?flowers,wedding" alt="">
     </div>
+    <a class="button" href="#hero">Back to Top ↑</a>
   </div>
 </section>
 
