@@ -54,6 +54,7 @@ background:#f8f5f0;
 border-radius:6px;
 box-shadow:0 15px 40px rgba(0,0,0,0.35);
 overflow:hidden;
+transform-style:preserve-3d;
 }
 
 /* flap */
@@ -249,4 +250,28 @@ footer{
 padding:40px 20px;
 font-size:0.8rem;
 color:#e5e9f0;
+}
+
+.wedding-names{
+font-family:'Playfair Display',serif;
+font-size:3.2rem;
+background:linear-gradient(45deg,#d4af37,#f9e27d,#cfa23d);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:fadeNames 2s ease;
+}
+
+.amp{
+margin:0 10px;
+}
+
+@keyframes fadeNames{
+0%{
+opacity:0;
+transform:translateY(20px);
+}
+100%{
+opacity:1;
+transform:translateY(0);
+}
 }
