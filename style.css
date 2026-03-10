@@ -22,7 +22,7 @@ text-align:center;
 line-height:1.6;
 }
 
-/* Envelope Screen */
+/* ===== ENVELOPE ===== */
 
 #envelopeScreen{
 position:fixed;
@@ -36,35 +36,36 @@ flex-direction:column;
 z-index:9999;
 }
 
-/* Envelope Wrapper */
-
 .envelope-wrapper{
 position:relative;
 cursor:pointer;
+transition:transform .3s;
 }
 
-/* Envelope */
+.envelope-wrapper:hover{
+transform:scale(1.05);
+}
 
 .envelope{
 position:relative;
-width:300px;
-height:200px;
+width:320px;
+height:210px;
 background:#f8f5f0;
 border-radius:6px;
-box-shadow:0 10px 25px rgba(0,0,0,0.25);
+box-shadow:0 15px 40px rgba(0,0,0,0.35);
 overflow:hidden;
 }
 
-/* Envelope Flap */
+/* flap */
 
 .envelope:before{
 content:"";
 position:absolute;
 top:0;
 left:0;
-border-left:150px solid transparent;
-border-right:150px solid transparent;
-border-top:100px solid #ece6dd;
+border-left:160px solid transparent;
+border-right:160px solid transparent;
+border-top:105px solid #ece6dd;
 transform-origin:top;
 transition:1s;
 z-index:3;
@@ -74,11 +75,11 @@ z-index:3;
 transform:rotateX(180deg);
 }
 
-/* Letter */
+/* letter */
 
 .letter{
 position:absolute;
-top:60px;
+top:65px;
 left:50%;
 transform:translateX(-50%);
 width:85%;
@@ -91,36 +92,36 @@ justify-content:center;
 align-items:center;
 font-family:'Playfair Display',serif;
 color:#6E7F9A;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
-transition:0.8s;
+box-shadow:0 8px 20px rgba(0,0,0,0.25);
+transition:0.9s;
 z-index:1;
 }
 
 .envelope.open .letter{
-transform:translate(-50%,-80px);
+transform:translate(-50%,-90px);
 }
 
-/* Wax Seal */
+/* seal */
 
 .seal{
 position:absolute;
-top:90px;
+top:95px;
 left:50%;
 transform:translateX(-50%);
-width:50px;
-height:50px;
-background:#a33a3a;
+width:55px;
+height:55px;
+background:#9c2f2f;
 border-radius:50%;
 display:flex;
 justify-content:center;
 align-items:center;
 color:white;
 font-size:20px;
-box-shadow:0 4px 10px rgba(0,0,0,0.3);
+box-shadow:0 5px 15px rgba(0,0,0,0.35);
 z-index:5;
 }
 
-/* Invitation text */
+/* invite text */
 
 .invite-text{
 margin-top:30px;
@@ -129,7 +130,7 @@ letter-spacing:2px;
 color:white;
 }
 
-/* Main Content */
+/* ===== MAIN CONTENT ===== */
 
 #mainContent{
 display:none;
@@ -141,11 +142,11 @@ from{opacity:0}
 to{opacity:1}
 }
 
-/* Scroll Fade Animation */
+/* ===== SCROLL FADE ===== */
 
 .fade-section{
 opacity:0;
-transform:translateY(40px);
+transform:translateY(60px);
 transition:all 1s ease;
 }
 
@@ -154,10 +155,10 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* Sections */
+/* ===== SECTIONS ===== */
 
 section{
-padding:80px 20px;
+padding:90px 20px;
 }
 
 .container{
@@ -179,7 +180,7 @@ color:var(--accent);
 margin-bottom:40px;
 }
 
-/* RSVP Button */
+/* button animation */
 
 .button{
 display:inline-block;
@@ -196,19 +197,11 @@ transition:all .3s ease;
 .button:hover{
 background:white;
 color:#6E7F9A;
-transform:translateY(-3px);
-box-shadow:0 6px 15px rgba(0,0,0,0.2);
+transform:translateY(-4px);
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* Countdown */
-
-.countdown{
-font-size:1.2rem;
-margin-top:20px;
-letter-spacing:2px;
-}
-
-/* Gallery */
+/* gallery */
 
 .gallery{
 display:grid;
@@ -225,10 +218,10 @@ transition:transform .5s ease;
 }
 
 .gallery img:hover{
-transform:scale(1.08);
+transform:scale(1.1);
 }
 
-/* Map */
+/* map */
 
 .map iframe{
 width:100%;
@@ -237,7 +230,7 @@ border:0;
 margin-top:20px;
 }
 
-/* Music Button */
+/* music button */
 
 .music-btn{
 position:fixed;
@@ -248,10 +241,9 @@ border:1px solid white;
 background:transparent;
 color:white;
 cursor:pointer;
-font-size:0.8rem;
 }
 
-/* Footer */
+/* footer */
 
 footer{
 padding:40px 20px;
