@@ -10,6 +10,10 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 font-family:'Inter',sans-serif;
 background:var(--bg);
@@ -32,7 +36,7 @@ flex-direction:column;
 z-index:9999;
 }
 
-/* Wrapper */
+/* Envelope Wrapper */
 
 .envelope-wrapper{
 position:relative;
@@ -51,7 +55,7 @@ box-shadow:0 10px 25px rgba(0,0,0,0.25);
 overflow:hidden;
 }
 
-/* Flap */
+/* Envelope Flap */
 
 .envelope:before{
 content:"";
@@ -96,7 +100,7 @@ z-index:1;
 transform:translate(-50%,-80px);
 }
 
-/* Seal */
+/* Wax Seal */
 
 .seal{
 position:absolute;
@@ -116,7 +120,7 @@ box-shadow:0 4px 10px rgba(0,0,0,0.3);
 z-index:5;
 }
 
-/* Text */
+/* Invitation text */
 
 .invite-text{
 margin-top:30px;
@@ -136,6 +140,21 @@ animation:fadeIn 2s ease;
 from{opacity:0}
 to{opacity:1}
 }
+
+/* Scroll Fade Animation */
+
+.fade-section{
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
+
+.fade-section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* Sections */
 
 section{
 padding:80px 20px;
@@ -160,6 +179,8 @@ color:var(--accent);
 margin-bottom:40px;
 }
 
+/* RSVP Button */
+
 .button{
 display:inline-block;
 margin-top:25px;
@@ -169,19 +190,25 @@ text-decoration:none;
 color:white;
 font-size:0.85rem;
 letter-spacing:1px;
-transition:.3s;
+transition:all .3s ease;
 }
 
 .button:hover{
 background:white;
 color:#6E7F9A;
+transform:translateY(-3px);
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
 }
+
+/* Countdown */
 
 .countdown{
 font-size:1.2rem;
 margin-top:20px;
 letter-spacing:2px;
 }
+
+/* Gallery */
 
 .gallery{
 display:grid;
@@ -194,7 +221,14 @@ margin-top:30px;
 width:100%;
 height:250px;
 object-fit:cover;
+transition:transform .5s ease;
 }
+
+.gallery img:hover{
+transform:scale(1.08);
+}
+
+/* Map */
 
 .map iframe{
 width:100%;
@@ -202,6 +236,8 @@ height:350px;
 border:0;
 margin-top:20px;
 }
+
+/* Music Button */
 
 .music-btn{
 position:fixed;
@@ -214,6 +250,8 @@ color:white;
 cursor:pointer;
 font-size:0.8rem;
 }
+
+/* Footer */
 
 footer{
 padding:40px 20px;
