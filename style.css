@@ -89,3 +89,22 @@ body{
 
 /* Footer */
 footer{padding:40px 20px;font-size:0.8rem;color:#e5e9f0;}
+
+/* Venue name and photo */
+.venue-name {
+  margin-top: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f9e27d; /* gold accent */
+}
+
+.venue-photo {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin-top: 15px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  object-fit: cover;
+}
