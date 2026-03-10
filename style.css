@@ -99,12 +99,29 @@ footer{padding:40px 20px;font-size:0.8rem;color:#e5e9f0;}
   color: #f9e27d; /* gold accent */
 }
 
+/* Venue photo */
 .venue-photo {
   width: 100%;
-  max-width: 450px;   /* limits the image size */
+  max-width: 450px;
   height: auto;
   display: block;
-  margin: 20px auto;  /* centers the image */
+  margin: 20px auto;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Map container */
+.map {
+  margin-top: 40px; /* creates space between photo and map */
+}
+
+/* Map iframe */
+.map iframe {
+  width: 100%;
+  max-width: 700px;
+  height: 350px;
+  border: 0;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
 }
