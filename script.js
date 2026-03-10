@@ -1,7 +1,8 @@
 function openInvite(){
 
-const env=document.getElementById("env");
-env.classList.add("open");
+const envelope=document.querySelector(".envelope");
+
+envelope.classList.add("open");
 
 setTimeout(()=>{
 
@@ -10,7 +11,7 @@ document.getElementById("mainContent").style.display="block";
 
 document.getElementById("bgMusic").play();
 
-},800);
+},1200);
 
 }
 
