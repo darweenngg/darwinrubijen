@@ -1,3 +1,5 @@
+/* Envelope Opening */
+
 function openInvite(){
 
 const envelope=document.querySelector(".envelope");
@@ -14,6 +16,8 @@ document.getElementById("bgMusic").play();
 },1200);
 
 }
+
+/* Countdown */
 
 const weddingDate=new Date("December 10, 2027 00:00:00").getTime();
 const countdownEl=document.getElementById("countdown");
@@ -32,6 +36,8 @@ days+" DAYS • "+hours+" HOURS • "+minutes+" MINUTES";
 
 },1000);
 
+/* Music Toggle */
+
 function toggleMusic(){
 
 const music=document.getElementById("bgMusic");
@@ -43,3 +49,25 @@ music.pause();
 }
 
 }
+
+/* Scroll Fade Animation */
+
+const sections=document.querySelectorAll(".fade-section");
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+});
+
+sections.forEach(section=>{
+observer.observe(section);
+});
