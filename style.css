@@ -1,14 +1,14 @@
 :root{
---bg:#6E7F9A;
---text:#ffffff;
---accent:#d8dee9;
+  --bg:#6E7F9A;
+  --text:#ffffff;
+  --accent:#d8dee9;
 }
 
 /* Reset */
 *{margin:0;padding:0;box-sizing:border-box;}
 html{
   scroll-behavior:smooth;
-  scroll-snap-type:y mandatory; /* <-- Snap scrolling */
+  scroll-snap-type:y mandatory; /* full-page snap scrolling */
   height:100%;
 }
 body{
@@ -18,7 +18,6 @@ body{
   text-align:center;
   line-height:1.6;
   overflow-x:hidden;
-  scroll-snap-type:y mandatory;
 }
 
 /* Falling petals */
@@ -47,11 +46,21 @@ body{
 @keyframes fadeNames{0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
 
 /* Full-page sections */
-.page-section{height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;flex-direction:column;scroll-snap-align:start;}
+.page-section{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  flex-direction:column;
+  scroll-snap-align:start;
+  position:relative; /* ensures children stay inside */
+  overflow:hidden; /* fixes overlapping content */
+}
 .fade-section{opacity:0;transform:translateY(60px);transition:all 1s ease;}
 .fade-section.show{opacity:1;transform:translateY(0);}
 
-/* Buttons (hidden now) */
+/* Buttons (hidden) */
 .button{display:none;}
 
 /* Gallery */
@@ -59,8 +68,21 @@ body{
 .gallery img{width:100%;height:250px;object-fit:cover;transition:transform .5s ease;}
 .gallery img:hover{transform:scale(1.1);}
 
-/* Map */
-.map iframe{width:100%;height:350px;border:0;margin-top:20px;}
+/* Map section fix */
+#location {
+  position: relative;
+  overflow: hidden; /* prevent iframe from overlapping next section */
+}
+.map iframe {
+  width: 100%;
+  height: 100%;       /* fill section */
+  max-height: 90vh;   /* prevent exceeding viewport */
+  border: 0;
+  display: block;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
+}
 
 /* Music */
 .music-btn{position:fixed;top:20px;right:20px;padding:10px 15px;border:1px solid white;background:transparent;color:white;}
